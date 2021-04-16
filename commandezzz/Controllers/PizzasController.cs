@@ -7,11 +7,11 @@ using commandezzz.IServices;
 namespace commandezzz.Controllers
 {
     [Route("api/[controller]/[action]")]
-    public class Pizzas : Controller
+    public class PizzasController : System.Web.Http.ApiController
     {
         public IPizzaService _pizzaService;
 
-        public Pizzas(IPizzaService pizzaService) { _pizzaService = pizzaService; Console.WriteLine("coucou"); Console.WriteLine("coucou"); Console.WriteLine("coucou"); Console.WriteLine("coucou"); }
+        public PizzasController(IPizzaService pizzaService) { _pizzaService = pizzaService; Console.WriteLine("coucou"); Console.WriteLine("coucou"); Console.WriteLine("coucou"); Console.WriteLine("coucou"); }
 
         [HttpGet("{id}")]
         public Pizza Get(int id)
