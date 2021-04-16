@@ -21,5 +21,5 @@ jobs:
       run: dotnet build --no-restore
     - name: Test
       run: dotnet test --no-build --verbosity normal
-    - name: Super-Linter
-      run: dotnet format --check
+    - name: ansible-lint
+      uses: ansible/ansible-lint-action@v4.1.0.post0
