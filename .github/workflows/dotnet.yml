@@ -24,5 +24,4 @@ jobs:
     - name: Test
       run: dotnet test --no-build --verbosity normal
     - name: Super-Linter
-      uses: github/super-linter@v3.15.5
       run: dotnet format --check
