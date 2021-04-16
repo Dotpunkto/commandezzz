@@ -6,7 +6,7 @@ namespace commandezzz.DataAccess
 {
     public class CommandeContext : DbContext
     {
-        public CommandeContext(DbContextOptions options)
+        public CommandeContext(DbContextOptions<CommandeContext> options)
             : base(options)
         {
         }

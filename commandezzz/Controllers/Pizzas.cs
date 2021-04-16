@@ -1,48 +1,40 @@
-﻿using System.Collections.Generic;
-using System;
-using commandezzz.DataAccess;
+﻿using System;
+using System.Collections.Generic;
 using commandezzz.Model;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
-using System.Linq;
+using commandezzz.IServices;
 
 namespace commandezzz.Controllers
 {
     [Route("api/[controller]/[action]")]
     public class Pizzas : Controller
     {
-        public CommandeContext _Context;
+        public IPizzaService _pizzaService;
 
-        public Pizzas(CommandeContext context)
-        {
-            _Context = context;
-        }
+        public Pizzas(IPizzaService pizzaService) { _pizzaService = pizzaService; Console.WriteLine("coucou"); Console.WriteLine("coucou"); Console.WriteLine("coucou"); Console.WriteLine("coucou"); }
 
         [HttpGet("{id}")]
         public Pizza Get(int id)
         {
-            return _Context.Pizzas.Find(id);
+            return _pizzaService.GetPizza(id);
         }
 
         [HttpGet]
         public List<Pizza> GetAll()
         {
-            return _Context.Pizzas.OrderBy(a => a.Name).ToList();
+            return _pizzaService.GetAllPizza();
         }
 
         [HttpPost]
         public void Post([FromBody] Pizza pizza)
         {
-            _Context.Pizzas.Add(pizza);
-            _Context.SaveChanges();
+            _pizzaService.AddPizza(pizza);
         }
 
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
-            Pizza pizza = _Context.Pizzas.Find(id);
-            _Context.Pizzas.Remove(pizza);
-            _Context.SaveChanges();
+            _pizzaService.DeletePizza(id);
         }
     }
 }

@@ -3,6 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using commandezzz.DataAccess;
+using commandezzz.IRepositories;
+using commandezzz.IServices;
+using commandezzz.Repositories;
+using commandezzz.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -31,6 +35,8 @@ namespace commandezzz
             services.AddControllers();
 
             services.AddDbContext<CommandeContext>(options => options.UseNpgsql(Configuration.GetConnectionString("commandezzz")));
+            services.AddScoped<IPizzaRepository, PizzaRepository>();
+            services.AddScoped<IPizzaService, PizzaService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
