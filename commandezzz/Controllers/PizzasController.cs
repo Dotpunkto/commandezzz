@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using commandezzz.Model;
 using Microsoft.AspNetCore.Mvc;
 using commandezzz.IServices;
-
 namespace commandezzz.Controllers
 {
     [Route("api/[controller]/[action]")]
-    public class PizzasController : System.Web.Http.ApiController
+    public class PizzasController : Controller
     {
         public IPizzaService _pizzaService;
 
