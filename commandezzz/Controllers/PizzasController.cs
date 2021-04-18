@@ -11,11 +11,11 @@ namespace commandezzz.Controllers
 {
     [Route("api/[controller]/[action]")]
     public class PizzasController : System.Web.Http.ApiController
-	{
+    {
         public IPizzaService _pizzaService;
 
-        public PizzasController(IPizzaService pizzaService) 
-        { 
+        public PizzasController(IPizzaService pizzaService)
+        {
             _pizzaService = pizzaService;
         }
 
@@ -26,9 +26,9 @@ namespace commandezzz.Controllers
         }
 
         [HttpGet]
-        public System.Web.Http.IHttpActionResult GetAll()
+        public List<Pizza> GetAll()
         {
-			return Content(HttpStatusCode.OK, _pizzaService.GetAllPizza());
+            return _pizzaService.GetAllPizza();
         }
 
         [HttpPost]
