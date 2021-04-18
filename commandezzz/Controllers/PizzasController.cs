@@ -3,14 +3,21 @@ using System.Collections.Generic;
 using commandezzz.Model;
 using Microsoft.AspNetCore.Mvc;
 using commandezzz.IServices;
+using System.Threading.Tasks;
+using System.Net.Http;
+using System.Net;
+
 namespace commandezzz.Controllers
 {
     [Route("api/[controller]/[action]")]
-    public class PizzasController : Controller
-    {
+    public class PizzasController : System.Web.Http.ApiController
+	{
         public IPizzaService _pizzaService;
 
-        public PizzasController(IPizzaService pizzaService) { _pizzaService = pizzaService; Console.WriteLine("coucou"); Console.WriteLine("coucou"); Console.WriteLine("coucou"); Console.WriteLine("coucou"); }
+        public PizzasController(IPizzaService pizzaService) 
+        { 
+            _pizzaService = pizzaService;
+        }
 
         [HttpGet("{id}")]
         public Pizza Get(int id)
@@ -19,9 +26,9 @@ namespace commandezzz.Controllers
         }
 
         [HttpGet]
-        public List<Pizza> GetAll()
+        public System.Web.Http.IHttpActionResult GetAll()
         {
-            return _pizzaService.GetAllPizza();
+			return Content(HttpStatusCode.OK, _pizzaService.GetAllPizza());
         }
 
         [HttpPost]

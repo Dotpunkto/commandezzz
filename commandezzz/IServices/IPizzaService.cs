@@ -9,5 +9,5 @@ namespace commandezzz.IServices
         List<Pizza> GetAllPizza();
         void AddPizza(Pizza pizza);
         void DeletePizza(int id);
-    }
+	}
 }
