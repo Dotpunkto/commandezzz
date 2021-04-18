@@ -17,20 +17,20 @@ namespace CommandeTest
 		[Fact]
 		public void Test1Async()
 		{
-			// Arrange
-			var pizzaService = new Mock<IPizzaService>();
-			pizzaService.Setup(x => x.GetAllPizza())
-				.Returns(new List<Pizza>());
+			//// Arrange
+			//var pizzaService = new Mock<IPizzaService>();
+			//pizzaService.Setup(x => x.GetAllPizza())
+			//	.Returns(new List<Pizza>());
 
-			var controller = new PizzasController(pizzaService.Object);
+			//var controller = new PizzasController(pizzaService.Object);
 
-			// Act
-			IHttpActionResult actionResult = controller.GetAll();
-			var contentResult = actionResult as OkNegotiatedContentResult<List<Pizza>>;
+			//// Act
+			//IHttpActionResult actionResult = controller.GetAll();
+			//var contentResult = actionResult as OkNegotiatedContentResult<List<Pizza>>;
 
-			// Assert
-			Assert.NotNull(contentResult);
-			Assert.NotNull(contentResult.Content);
+			//// Assert
+			//Assert.NotNull(contentResult);
+			//Assert.NotNull(contentResult.Content);
 		}
 	}
 }
