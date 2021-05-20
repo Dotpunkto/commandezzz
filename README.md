@@ -7,5 +7,5 @@
 
 # Lien Heroku
 
-- Dev : https://commande-dev.herokuapp.com
+- Dev : https://commande-pizza.herokuapp.com
 - Prod : https://commande-prod.herokuapp.com
