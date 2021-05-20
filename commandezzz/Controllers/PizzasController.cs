@@ -20,7 +20,8 @@ namespace commandezzz.Controllers
         }
 
         [HttpGet]
-        public string Get()
+        [Route("/")]
+        public string index()
         {
             return "coucou";
         }
