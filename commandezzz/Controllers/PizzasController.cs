@@ -19,6 +19,12 @@ namespace commandezzz.Controllers
             _pizzaService = pizzaService;
         }
 
+        [HttpGet]
+        public string Get()
+        {
+            return "coucou";
+        }
+
         [HttpGet("{id}")]
         public Pizza Get(int id)
         {
